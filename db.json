@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": "mockUser123",
+      "email": "test@example.com",
+      "password": "hashed_password_for_test_example_com"
+    },
+    {
+      "id": "mockUser456",
+      "email": "another@example.com",
+      "password": "hashed_password_for_another_example_com"
+    },
+    {
+      "id": "7a3b",
+      "email": "example@email.com",
+      "password": "123321ss"
+    },
+    {
+      "id": "2ca4",
+      "email": "s1@mail.ru",
+      "password": "112233q"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "txn001",
+      "userId": "mockUser123",
+      "amount": 150.75,
+      "type": "EXPENSE",
+      "category": "Продукты",
+      "timestamp": 1678886400000,
+      "description": "Молоко, хлеб"
+    },
+    {
+      "id": "txn002",
+      "userId": "mockUser123",
+      "amount": 2500,
+      "type": "INCOME",
+      "category": "Зарплата",
+      "timestamp": 1678972800000,
+      "description": "Аванс за март"
+    }
+  ]
+}
