@@ -1,8 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    // alias(libs.plugins.kotlin.kapt) // <-- УДАЛИ ИЛИ ЗАКОММЕНТИРУЙ
-    alias(libs.plugins.ksp) // <-- ДОБАВЬ ПЛАГИН KSP
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -11,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.project"
-        minSdk = 26 // Рекомендуется понизить
+        minSdk = 26
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -39,31 +38,30 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    // buildFeatures {
-    //     viewBinding = true
-    // }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.constraintlayout)
-
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-
-
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
-    implementation(libs.androidx.room.common.jvm)
     ksp(libs.androidx.room.compiler)
 
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.retrofit) // Или используй alias из libs.versions.toml, например, libs.retrofit
+    // Gson Converter (для преобразования JSON в/из Kotlin объектов)
+    implementation(libs.converter.gson) // Или libs.converter.gson
+    // OkHttp Logging Interceptor (для просмотра логов сетевых запросов)
+    implementation(libs.logging.interceptor) // Или libs.okhttp.logging.interceptor
+    // OkHttp (обычно идет как транзитивная зависимость Retrofit, но можно указать явно)
+    implementation(libs.okhttp) // Или libs.okhttp
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
